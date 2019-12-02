@@ -1,7 +1,7 @@
 const test = require('ava')
 
-const S3Manager = require('../../../s3')
-const getFileMd5 = require('../../../s3/md5')
+const S3Manager = require('../../../lib/s3')
+const getFileMd5 = require('../../../lib/s3/md5')
 
 const hasKey = (key, array) =>
   !!array.find(obj => obj.Key === key)

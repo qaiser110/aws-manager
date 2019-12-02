@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const S3Manager = require('../../../s3')
+const S3Manager = require('../../../lib/s3')
 
 const filePath = 'fixtures/binaries/sample.jpeg'
 const bucket = 'ss-wcms-iapi-primary-bucket-preview-test-automation'

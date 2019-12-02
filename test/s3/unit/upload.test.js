@@ -5,8 +5,8 @@ const AWS = require('aws-sdk')
 const AWSMock = require('aws-sdk-mock')
 const pick = require('lodash/fp/pick')
 
-const S3Manager = require('../../../s3')
-const getFileMd5 = require('../../../s3/md5')
+const S3Manager = require('../../../lib/s3')
+const getFileMd5 = require('../../../lib/s3/md5')
 
 const bucket = 'fakeBucket'
 const filePath = 'fixtures/binaries/sample.jpeg'
