@@ -1,6 +1,6 @@
 {
-  "name": "s3-manager",
-  "version": "1.2.2",
+  "name": "aws-manager",
+  "version": "0.0.1",
   "description": "A wrapper around Amazon's AWS S3 to make upload, delete and listing S3 objects easy.",
   "main": "./lib/index.js",
   "files": [
@@ -21,7 +21,6 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^2.2.0",
-    "eslint": "^6.1.0",
     "nyc": "^14.1.1",
     "sinon": "^7.4.1",
     "aws-sdk-mock": "^4.5.0",
