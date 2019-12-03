@@ -1,10 +1,11 @@
 const test = require('ava')
+require('dotenv').config()
 
 const S3Manager = require('../../../lib/s3')
 const getFileMd5 = require('../../../lib/s3/md5')
 
 const filePath = 'fixtures/binaries/sample.jpeg'
-const bucket = 'ss-wcms-iapi-primary-bucket-preview-test-automation'
+const bucket = process.env.s3Bucket
 const s3 = new S3Manager(bucket)
 const prefix = 'test-002'
 
@@ -29,12 +30,13 @@ test('Uploads the binary', async t => {
   })
 
   t.log(data)
-  t.is(data.Location, `https://${bucket}.s3.amazonaws.com/${key}`)
+  t.is(data.Location, `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`)
   t.is(data.Key, key)
   t.is(data.Bucket, bucket)
 })
 
 test('throws and error when Bucket is not set', async t => {
+  process.env.s3Bucket = ''
   const error = t.throws(() => {
     // eslint-disable-next-line no-new
     new S3Manager()

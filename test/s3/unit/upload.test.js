@@ -19,7 +19,7 @@ const getParams = () => {
     key,
     s3Response: {
       Key: key,
-      Location: `https://fakeBucket.s3.amazonaws.com/${key}`,
+      Location: `https://fakeBucket.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`,
       Bucket: bucket,
     }
   }

@@ -1,4 +1,5 @@
 const test = require('ava')
+require('dotenv').config()
 
 const S3Manager = require('../../../lib/s3')
 const getFileMd5 = require('../../../lib/s3/md5')
@@ -7,7 +8,7 @@ const hasKey = (key, array) =>
   !!array.find(obj => obj.Key === key)
 
 const filePath = 'fixtures/binaries/sample.jpeg'
-const bucket = 'ss-wcms-iapi-primary-bucket-preview-test-automation'
+const bucket = process.env.s3Bucket
 const s3 = new S3Manager(bucket)
 
 const prefix = 'test-001'
@@ -30,7 +31,7 @@ test.before('Create s3 objects with metadata and tags', async t => {
   const data = await s3.upload(key3, filePath, {
     optionalParams: Object.assign(optionalData, { Metadata: { md5: key3Md5 } })
   })
-  t.is(data.Location, `https://${bucket}.s3.amazonaws.com/${key3}`)
+  t.is(data.Location, `https://${bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${key3}`)
 })
 
 test.after('Destroy the three s3 objects', async t => {

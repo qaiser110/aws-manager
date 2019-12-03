@@ -1,9 +1,10 @@
 const test = require('ava')
+require('dotenv').config()
 
 const S3Manager = require('../../../lib/s3')
 
 const filePath = 'fixtures/binaries/sample.jpeg'
-const bucket = 'ss-wcms-iapi-primary-bucket-preview-test-automation'
+const bucket = process.env.s3Bucket
 const s3 = new S3Manager(bucket)
 
 const prefix = 'test-003'

@@ -38,6 +38,7 @@
   },
   "engine": "node >= 8.6.0",
   "dependencies": {
-    "aws-sdk": "^2.582.0"
+    "aws-sdk": "^2.582.0",
+    "dotenv": "^8.2.0"
   }
 }
