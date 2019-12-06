@@ -50,6 +50,7 @@ test('Lists the s3 objects', async t => {
   const data = await s3.list(prefix)
   t.true(hasKey(keys[0], data.Contents))
   t.true(hasKey(keys[1], data.Contents))
+  data.
   t.is(data.Name, bucket)
   t.is(data.Prefix, prefix)
 })
